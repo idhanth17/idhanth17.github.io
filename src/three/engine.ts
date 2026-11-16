@@ -162,7 +162,7 @@ class Engine {
     let ctx2d: CanvasRenderingContext2D | null = null;
     if (direct) {
       try {
-        renderer = new WebGLRenderer({ canvas: el, antialias: true, alpha: true, powerPreference: 'high-performance' });
+        renderer = new WebGLRenderer({ canvas: el, antialias: true, alpha: true, powerPreference: 'default' });
         renderer.setPixelRatio(1);
         renderer.setClearColor(0x000000, 0);
       } catch {
@@ -214,7 +214,7 @@ class Engine {
       target: { x: 0, y: 0 },
       io: new IntersectionObserver(
         (entries) => {
-          view.visible = entries[0].isIntersecting;
+          view.visible = entries[entries.length - 1].isIntersecting;
           if (view.visible) {
             view.dirty = true;
             this.kick();
@@ -242,6 +242,7 @@ class Engine {
           def.dispose();
         } finally {
           renderer?.dispose();
+          renderer?.forceContextLoss(); // dispose() alone keeps the WebGL context alive
         }
       },
       send: (data) => {

@@ -362,9 +362,11 @@ interface NotesProps {
   body: string | null;
   onBody: (slug: string, text: string) => void;
   onDelete: (slug: string) => void;
+  bodyFailed: boolean;
+  onRetry: () => void;
 }
 
-function Notes({ content, onChange, ctx, selected, onSelect, body, onBody, onDelete }: NotesProps) {
+function Notes({ content, onChange, ctx, selected, onSelect, body, onBody, onDelete, bodyFailed, onRetry }: NotesProps) {
   const posts = content.writing.posts;
   const post = posts.find((p) => p.slug === selected);
   const setWriting = (w: SiteContent['writing']) => onChange({ ...content, writing: w });
@@ -411,7 +413,14 @@ function Notes({ content, onChange, ctx, selected, onSelect, body, onBody, onDel
                     <label className="ad-label" htmlFor="ad-body">
                       Text (Markdown)
                     </label>
-                    {body === null ? (
+                    {bodyFailed ? (
+                      <p className="ad-error" role="alert">
+                        The text could not be loaded from GitHub.{' '}
+                        <button type="button" className="ad-link" onClick={onRetry}>
+                          Try again
+                        </button>
+                      </p>
+                    ) : body === null ? (
                       <p className="ad-empty">Loading the text from GitHub…</p>
                     ) : (
                       <textarea id="ad-body" className="ad-input ad-textarea ad-md" rows={18} value={body} onChange={(e) => onBody(post.slug, e.target.value)} />
@@ -473,6 +482,8 @@ function Editor({ cfg, viewer, initial, onSignOut }: { cfg: GitHubConfig; viewer
   const [message, setMessage] = useState('');
   const [deploy, setDeploy] = useState<(DeployRun & { commit: string }) | null>(null);
   const [notice, setNotice] = useState('');
+  const [bodyError, setBodyError] = useState<string | null>(null);
+  const [bodyRetry, setBodyRetry] = useState(0);
   const deployTimer = useRef(0);
   const restored = useRef(false);
 
@@ -522,7 +533,12 @@ function Editor({ cfg, viewer, initial, onSignOut }: { cfg: GitHubConfig; viewer
           localStorage.setItem(DRAFT_KEY, JSON.stringify(saved));
         }
       } catch {
-        /* too large for this browser's storage: the leave-page warning still protects it */
+        // Too large for this browser's storage. Drop the older copy so it is never restored as if it were current.
+        try {
+          localStorage.removeItem(DRAFT_KEY);
+        } catch {
+          /* nothing more to do: the leave-page warning still protects the work */
+        }
       }
     }, 600);
     return () => clearTimeout(t);
@@ -539,15 +555,16 @@ function Editor({ cfg, viewer, initial, onSignOut }: { cfg: GitHubConfig; viewer
 
   // Load a note's text the first time it is opened.
   useEffect(() => {
-    if (!note || note in bodies) return;
+    if (!note || note in bodies || bodyError === note) return;
     let live = true;
     readFile(cfg, postFile(note))
       .then((f) => live && setBodies((b) => (note in b ? b : { ...b, [note]: f?.text ?? '' })))
-      .catch(() => live && setBodies((b) => (note in b ? b : { ...b, [note]: '' })));
+      // A failed load must never look like an empty note: publishing that would wipe the real text.
+      .catch(() => live && setBodyError(note));
     return () => {
       live = false;
     };
-  }, [note, bodies, cfg]);
+  }, [note, bodies, cfg, bodyError, bodyRetry]);
 
   const ctx: FormContext = useMemo(
     () => ({
@@ -611,7 +628,8 @@ function Editor({ cfg, viewer, initial, onSignOut }: { cfg: GitHubConfig; viewer
         if (await readFile(cfg, postFile(slug), head.commit)) changes.push({ path: postFile(slug), remove: true });
       }
       const commit = await commitFiles(cfg, head, changes, message.trim() || defaultMessage);
-      const fresh = await readFile(cfg, CONTENT_PATH, commit);
+      // The publish has happened by this point; a failed read-back must not report it as failed.
+      const fresh = await readFile(cfg, CONTENT_PATH, commit).catch(() => null);
       setLoaded({ content: draft, sha: fresh?.sha ?? '' });
       setUploads({});
       setDirtyBodies([]);
@@ -747,6 +765,15 @@ function Editor({ cfg, viewer, initial, onSignOut }: { cfg: GitHubConfig; viewer
         </span>
       </header>
 
+      {pub.state === 'saving' && (
+        // Nothing can be edited while a publish is running, so nothing typed in those seconds can be lost.
+        <div className="ad-sheet" role="alertdialog" aria-modal="true" aria-label="Publishing">
+          <div className="ad-card">
+            <h2>Publishing…</h2>
+            <p>Saving your changes to GitHub. This takes a few seconds.</p>
+          </div>
+        </div>
+      )}
       {(pub.state === 'confirm' || pub.state === 'conflict' || pub.state === 'error') && (
         <div className="ad-sheet" role="dialog" aria-modal="true" aria-label="Publish">
           <div className="ad-card">
@@ -854,7 +881,7 @@ function Editor({ cfg, viewer, initial, onSignOut }: { cfg: GitHubConfig; viewer
         {SECTIONS.map((s) => (
           <button key={s.id} type="button" aria-current={section === s.id ? 'true' : undefined} onClick={() => setSection(s.id)}>
             {s.label}
-            {changed.includes(LABELS[s.path[0] ?? ''] ?? '') && <i aria-label="changed" />}
+            {(s.path.length ? [s.path[0]] : s.fields.map((f) => f.key)).some((k) => changed.includes(LABELS[k] ?? '')) && <i aria-label="changed" />}
           </button>
         ))}
         <button type="button" aria-current={section === 'notes' ? 'true' : undefined} onClick={() => setSection('notes')}>
@@ -885,6 +912,11 @@ function Editor({ cfg, viewer, initial, onSignOut }: { cfg: GitHubConfig; viewer
               selected={note}
               onSelect={setNote}
               body={noteBody}
+              bodyFailed={bodyError === note}
+              onRetry={() => {
+                setBodyError(null);
+                setBodyRetry((n) => n + 1);
+              }}
               onBody={(slug, text) => {
                 setBodies((b) => ({ ...b, [slug]: text }));
                 setDirtyBodies((d) => (d.includes(slug) ? d : [...d, slug]));

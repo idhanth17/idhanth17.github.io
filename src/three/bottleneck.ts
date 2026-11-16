@@ -398,6 +398,7 @@ export function bottleneck(ctx: SceneCtx, opts: BottleneckOpts): SceneDef {
 
   // ---- time, phase and the annotation
   let clock = 0;
+  let still = 1; // with reduced motion there is no timeline: the phase is whichever state was last asked for
   let found = false;
   let sent = -1;
   const anchor = new Vector3();
@@ -426,7 +427,7 @@ export function bottleneck(ctx: SceneCtx, opts: BottleneckOpts): SceneDef {
     },
     update(time, dt, pointer) {
       clock += dt;
-      const phase = ctx.reduced ? 1 : phaseAt(clock);
+      const phase = ctx.reduced ? still : phaseAt(clock);
       const neck = lerp(NECK_BEFORE, NECK_AFTER, phase);
       shape(neck);
       if (dt > 0) step(dt, phase, time);
@@ -463,6 +464,10 @@ export function bottleneck(ctx: SceneCtx, opts: BottleneckOpts): SceneDef {
     },
     message(data) {
       const target = (data as { phase?: number } | null)?.phase;
+      if (ctx.reduced) {
+        if (target === 0 || target === 1) still = target;
+        return;
+      }
       const current = phaseAt(clock);
       // Jump to the start of the matching transition, so the change is animated rather than cut.
       if (target === 1 && current < 0.5) clock = T_BEFORE;

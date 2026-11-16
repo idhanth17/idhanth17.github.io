@@ -46,7 +46,7 @@
       "3.8M → 2.7M case-law tokens",
       "20,177 judgments reconciled, 0 missing",
       "5 injection routes, 0 leaks",
-      "3.2 s → 1.25 s dashboard p50",
+      "3.19 s → 1.25 s dashboard p50",
       "~1,700 mislabelled AI sessions found",
       "5,005 → 17 lottery tickets"
     ],
@@ -139,7 +139,7 @@
       "decimals": 1,
       "better": "lower",
       "delta": "6× faster",
-      "note": "User portal: dropped statute PDFs (34% of the prompt) from the call"
+      "note": "User portal: statute PDFs (34% of the prompt) dropped from the call, among other fixes"
     },
     {
       "id": "tokens",
@@ -155,7 +155,7 @@
     {
       "id": "p50",
       "label": "Dashboard p50 latency",
-      "before": 3.2,
+      "before": 3.19,
       "after": 1.25,
       "unit": "s",
       "decimals": 2,
@@ -394,7 +394,7 @@
             ],
             "visual": "fleet",
             "visualCount": 10,
-            "visualCaption": "Ten developer machines streaming what four AI coding tools did to one dashboard."
+            "visualCaption": "Ten developer machines streaming activity from four coding tools (Claude Code, Codex, Cursor, VS Code) to one dashboard."
           }
         ],
         "also": [

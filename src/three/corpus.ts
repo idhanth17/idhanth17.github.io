@@ -116,6 +116,7 @@ export function corpus(ctx: SceneCtx, opts: CorpusOpts): SceneDef {
     pulse.position.set(qx, qy, qz);
   };
 
+  let lastGlow = -1;
   let clock = ctx.reduced ? 1.4 : 0;
   ask();
 
@@ -150,7 +151,11 @@ export function corpus(ctx: SceneCtx, opts: CorpusOpts): SceneDef {
         linkPos[n * 6 + 4] = qy + (ty - qy) * reach;
         linkPos[n * 6 + 5] = qz + (tz - qz) * reach;
       }
-      dots.geometry.attributes.aMix.needsUpdate = true;
+      // Only re-send the colours while the highlight is actually changing.
+      if (glow !== lastGlow) {
+        lastGlow = glow;
+        dots.geometry.attributes.aMix.needsUpdate = true;
+      }
       linkGeo.attributes.position.needsUpdate = true;
       links.material.opacity = 0.9 * fade;
       query.scale.setScalar(Math.max(0.001, fade * (0.6 + 0.4 * reach)));

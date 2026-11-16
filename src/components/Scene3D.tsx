@@ -48,7 +48,7 @@ export function Scene3D({ name, opts, direct = false, className = '', onReady, o
     };
     const io = new IntersectionObserver(
       (entries) => {
-        if (!entries[0].isIntersecting) return;
+        if (!entries[entries.length - 1].isIntersecting) return;
         io.disconnect();
         start();
       },

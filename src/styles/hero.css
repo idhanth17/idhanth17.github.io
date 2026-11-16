@@ -30,10 +30,10 @@
 [data-tilt] {
   position: relative;
   transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translate3d(var(--tx, 0px), var(--ty, 0px), 0) rotate(var(--rz, 0deg));
-  transition: transform 0.5s var(--ease), box-shadow 0.3s var(--ease);
+  transition: opacity 0.8s var(--ease), transform 0.5s var(--ease), box-shadow 0.3s var(--ease);
 }
 [data-tilt][data-tilting] {
-  transition: transform 0.09s linear, box-shadow 0.3s var(--ease);
+  transition: opacity 0.8s var(--ease), transform 0.09s linear, box-shadow 0.3s var(--ease);
 }
 [data-tilt]::after {
   content: '';

@@ -17,10 +17,11 @@ const root = createRoot(document.getElementById('admin')!);
 
 // The editor refuses to run inside another page's frame, where its buttons could be
 // covered or clicked on someone's behalf.
-if (window.top !== window.self) {
+// It also refuses when another page opened it, because that page could then script this tab.
+if (window.top !== window.self || window.opener) {
   root.render(
     <main className="ad-signin">
-      <p className="ad-empty">For safety, the editor only opens in its own tab.</p>
+      <p className="ad-empty">For safety, the editor only opens in its own tab. Type its address into a new tab.</p>
     </main>,
   );
 } else {

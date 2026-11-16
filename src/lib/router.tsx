@@ -32,6 +32,15 @@ export function navigate(to: string) {
   navigateImpl(to);
 }
 
+/** A hash someone mangled ("#%") must not take the page down. */
+function decodeHash(hash: string): string {
+  try {
+    return decodeURIComponent(hash);
+  } catch {
+    return hash;
+  }
+}
+
 function isAppPath(pathname: string): boolean {
   if (!pathname.startsWith(BASE)) return false;
   const rel = pathname.slice(BASE.length);
@@ -70,7 +79,7 @@ export function Router({ initialRel, children }: { initialRel: string; children:
         location.href = url.href;
         return;
       }
-      const hash = decodeURIComponent(url.hash.slice(1));
+      const hash = decodeHash(url.hash.slice(1));
       if (url.pathname === location.pathname) {
         // Same page: only the scroll target changes.
         history.replaceState(history.state, '', url);
@@ -85,7 +94,7 @@ export function Router({ initialRel, children }: { initialRel: string; children:
 
     const onPop = () => {
       const y = typeof history.state?.y === 'number' ? history.state.y : 0;
-      go({ rel: stripBase(location.pathname), hash: decodeURIComponent(location.hash.slice(1)), pop: true, y });
+      go({ rel: stripBase(location.pathname), hash: decodeHash(location.hash.slice(1)), pop: true, y });
     };
 
     const onClick = (e: MouseEvent) => {
@@ -120,7 +129,7 @@ export function Router({ initialRel, children }: { initialRel: string; children:
   useLayoutEffect(() => {
     if (loc.key === 0) {
       // First paint: honour a hash in the address bar, but leave focus alone as browsers do.
-      if (location.hash.length > 1) scrollToHash(decodeURIComponent(location.hash.slice(1)), false, false);
+      if (location.hash.length > 1) scrollToHash(decodeHash(location.hash.slice(1)), false, false);
       return;
     }
     if (loc.pop) window.scrollTo(0, loc.y);

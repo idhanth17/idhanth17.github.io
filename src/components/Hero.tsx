@@ -176,7 +176,7 @@ export function Hero() {
         if (k < 1) raf = requestAnimationFrame(tick);
       };
       raf = requestAnimationFrame(tick);
-    }, 3200);
+    }, 7000);
     return () => {
       clearTimeout(timer);
       cancelAnimationFrame(raf);

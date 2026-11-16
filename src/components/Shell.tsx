@@ -256,7 +256,7 @@ export function Footer() {
               Source
             </a>
           )}
-          <a href={href('/admin/')} rel="nofollow">
+          <a href={href('/admin/')} target="_blank" rel="nofollow noopener">
             Owner login
           </a>
           {/* A bare "#" is the top of whichever page this is. */}

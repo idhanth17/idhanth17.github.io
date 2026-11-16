@@ -100,7 +100,7 @@ function FieldView({ field, value, onChange, ctx }: { field: Field; value: any; 
     case 'lines':
       return <LinesField field={field} value={Array.isArray(value) ? value : []} onChange={onChange} />;
     case 'image':
-      return <UploadField id={id} field={field} value={value ?? ''} onChange={onChange} ctx={ctx} kind="image" accept="image/*" />;
+      return <UploadField id={id} field={field} value={value ?? ''} onChange={onChange} ctx={ctx} kind="image" accept="image/png,image/jpeg,image/webp,image/gif,image/avif" />;
     case 'file':
       return <UploadField id={id} field={field} value={value ?? ''} onChange={onChange} ctx={ctx} kind="file" accept={field.accept} target={field.target} />;
     case 'group':
