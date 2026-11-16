@@ -1,0 +1,487 @@
+/* ---------- Fonts: self-hosted, latin subsets only ---------- */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-opsz-italic.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('@fontsource-variable/geist/files/geist-latin-wght-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+/* ---------- Tokens ---------- */
+:root {
+  --paper: #f4f0e6;
+  --paper-2: #ebe6d9;
+  --paper-3: #e0dacb;
+  --ink: #15140f;
+  --ink-2: #48453c;
+  --ink-3: #6b665b;
+  --line: rgba(21, 20, 15, 0.13);
+  --line-strong: rgba(21, 20, 15, 0.3);
+  --accent: #d43a10;
+  --accent-text: #b5300b;
+  --accent-soft: rgba(212, 58, 16, 0.1);
+  --on-accent: #fff;
+  --good: #0a6e42;
+  --good-text: #075c37;
+  --good-soft: rgba(10, 110, 66, 0.11);
+  --bad: #c2310f;
+  --on-ink: #f4f0e6;
+
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, monospace;
+
+  --radius: 12px;
+  --max: 1200px;
+  --gutter: clamp(20px, 4vw, 44px);
+  --nav-h: 64px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --paper: #121210;
+  --paper-2: #1b1b18;
+  --paper-3: #262622;
+  --ink: #efeadf;
+  --ink-2: #c2bdb0;
+  --ink-3: #8e897c;
+  --line: rgba(239, 234, 223, 0.13);
+  --line-strong: rgba(239, 234, 223, 0.32);
+  --accent: #ff6b3d;
+  --accent-text: #ff7d54;
+  --accent-soft: rgba(255, 107, 61, 0.13);
+  --on-accent: #121210;
+  --good: #47d695;
+  --good-text: #47d695;
+  --good-soft: rgba(71, 214, 149, 0.13);
+  --bad: #ff7a5c;
+  --on-ink: #121210;
+  color-scheme: dark;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--nav-h) + 18px);
+  background: var(--paper);
+}
+html.is-locked {
+  overflow: hidden;
+}
+body {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.6 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  transition: background-color 0.3s, color 0.3s;
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: inherit;
+  font-size: inherit;
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+[hidden] {
+  display: none !important;
+}
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+[tabindex='-1']:focus {
+  outline: none;
+}
+/* On the ink-coloured blocks the accent ring is too faint, so use the paper colour there. */
+.contact :focus-visible,
+.footer :focus-visible,
+.ticker :focus-visible {
+  outline-color: var(--on-ink);
+}
+strong,
+b {
+  font-weight: 600;
+}
+code {
+  font: 500 0.9em var(--font-mono);
+}
+kbd {
+  font: 500 11px/1.4 var(--font-mono);
+  padding: 2px 6px;
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  color: var(--ink-2);
+  background: var(--paper);
+  white-space: nowrap;
+}
+
+/* ---------- Utilities ---------- */
+.wrap {
+  width: min(var(--max), 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+.wrap-narrow {
+  --max: 760px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip {
+  position: fixed;
+  left: 12px;
+  top: -80px;
+  z-index: 400;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--on-ink);
+  border-radius: 8px;
+  transition: top 0.2s;
+}
+.skip:focus {
+  top: 12px;
+}
+.icon {
+  flex: none;
+}
+.muted {
+  color: var(--ink-3);
+}
+.eyebrow {
+  font: 500 11.5px/1.4 var(--font-mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.sub-title {
+  font: 500 12px/1.4 var(--font-mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+}
+.footnote {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+  max-width: 62em;
+}
+.footnote a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink);
+  font-weight: 500;
+  border-bottom: 1.5px solid var(--accent);
+  white-space: nowrap;
+}
+
+/* Buttons: flat, with a printed offset shadow on hover */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 9px 18px;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 15px/1.2 var(--font-sans);
+  white-space: nowrap;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background-color 0.2s, color 0.2s;
+}
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.btn:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 var(--ink);
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+.btn-primary:hover {
+  box-shadow: 4px 4px 0 var(--accent);
+}
+.btn-lg {
+  min-height: 52px;
+  padding: 12px 22px;
+  font-size: 16.5px;
+}
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  grid-auto-flow: column;
+  gap: 7px;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--ink-2);
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+.icon-btn:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: var(--paper-2);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chips li {
+  font: 500 11.5px/1.5 var(--font-mono);
+  padding: 3px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.bullets {
+  display: grid;
+  gap: 9px;
+}
+.bullets li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--ink-2);
+}
+.bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 11px;
+  height: 2px;
+  background: var(--accent);
+}
+.bullets strong {
+  color: var(--ink);
+}
+
+/* Sliders */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  background: transparent;
+  cursor: grab;
+  --fill: 0%;
+}
+input[type='range']:active {
+  cursor: grabbing;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ink) var(--fill), var(--line-strong) var(--fill));
+}
+input[type='range']::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ink) var(--fill), var(--line-strong) var(--fill));
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.15s var(--ease);
+}
+input[type='range']::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+input[type='range']:hover::-webkit-slider-thumb {
+  transform: scale(1.12);
+}
+
+/* ---------- Lens: every variant is in the HTML, <html data-lens> picks one ---------- */
+html[data-lens='recruiter'] [data-lens-only]:not([data-lens-only='recruiter']),
+html[data-lens='engineer'] [data-lens-only]:not([data-lens-only='engineer']),
+html[data-lens='friend'] [data-lens-only]:not([data-lens-only='friend']),
+html[data-lens='recruiter'] [data-lens-hide~='recruiter'],
+html[data-lens='engineer'] [data-lens-hide~='engineer'],
+html[data-lens='friend'] [data-lens-hide~='friend'] {
+  display: none !important;
+}
+[data-lens-only] {
+  animation: lens-in 0.5s var(--ease);
+}
+@keyframes lens-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* ---------- Scroll reveal (only armed once the app is running) ---------- */
+[data-reveal] {
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+.reveal-on [data-reveal]:not([data-in]) {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+/* A target jumped to from a skill or the command palette */
+.is-target {
+  animation: target 1.8s var(--ease);
+}
+@keyframes target {
+  0%,
+  55% {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+  }
+  100% {
+    outline: 3px solid transparent;
+    outline-offset: 4px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--good) 55%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+}
+
+/* ---------- Page transitions between routes ---------- */
+::view-transition-old(root) {
+  animation: vt-out 0.2s var(--ease) both;
+}
+::view-transition-new(root) {
+  animation: vt-in 0.4s var(--ease) both;
+}
+@keyframes vt-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}

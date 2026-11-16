@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-lens="recruiter" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f0e6" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!--head-start-->
+    <title>Idhanth Karthik</title>
+    <!--head-end-->
+    <script>
+      // Runs before first paint: restores the reader's lens and theme so nothing flashes.
+      (function () {
+        var d = document.documentElement;
+        try {
+          var lens = new URLSearchParams(location.search).get('as') || localStorage.getItem('ik:lens');
+          if (lens === 'recruiter' || lens === 'engineer' || lens === 'friend') d.setAttribute('data-lens', lens);
+          var theme = localStorage.getItem('ik:theme');
+          if (theme !== 'light' && theme !== 'dark') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          d.setAttribute('data-theme', theme);
+          if (theme === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#121210');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/entry-client.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,1072 @@
+{
+  "meta": {
+    "siteUrl": "https://idhanth17.github.io",
+    "title": "Idhanth Karthik — Software Engineer, Backend & LLM Systems",
+    "description": "Idhanth Karthik builds backend and LLM systems: production RAG pipelines, observability for AI coding agents, and measured performance work.",
+    "repo": "idhanth17/idhanth17.github.io",
+    "branch": "main",
+    "goatcounter": ""
+  },
+  "profile": {
+    "name": "Idhanth Karthik",
+    "role": "Software Engineer",
+    "focus": "Backend & LLM Systems",
+    "location": "India",
+    "timezone": "Asia/Kolkata",
+    "availability": "Open to software engineering roles · Class of 2028",
+    "email": "idhanth05@gmail.com",
+    "photo": "/uploads/idhanth.jpg",
+    "photoPosition": "58% 24%",
+    "resume": "/resume.pdf",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/idhanth17",
+        "kind": "github"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/idhanth-karthik-0b4192280/",
+        "kind": "linkedin"
+      }
+    ]
+  },
+  "hero": {
+    "headline": "I find the *real* bottleneck.",
+    "sub": {
+      "recruiter": "I build backend and LLM systems, and I don't call anything fixed until there's a before and an after. Recently: a production RAG platform that drafts legal orders, and an observability platform for AI coding agents.",
+      "engineer": "Give me a system that's slow, flaky or expensive. I'll instrument it, find the cause that's actually responsible — not the nearest suspect — and ship the fix with numbers attached.",
+      "friend": "Hey, I'm Idhanth 👋 A tech enthusiast who loves coding, gaming and exploring new places. I also happen to enjoy making slow software fast."
+    },
+    "sceneBefore": "the real bottleneck",
+    "sceneAfter": "fixed: +75% throughput",
+    "ticker": [
+      "32 → 56 LLM calls/min",
+      "27.8 s → 4.5 s closing remarks",
+      "3.8M → 2.7M case-law tokens",
+      "20,177 judgments reconciled, 0 missing",
+      "5 injection routes, 0 leaks",
+      "3.2 s → 1.25 s dashboard p50",
+      "~1,700 mislabelled AI sessions found",
+      "5,005 → 17 lottery tickets"
+    ],
+    "instrumentTitle": "Before → After",
+    "instrumentNote": "Measured numbers from my internship at Jungroo AI Labs, taken from commit records, test output and reports."
+  },
+  "brief": {
+    "recruiter": {
+      "title": "The 60‑second version",
+      "facts": [
+        {
+          "label": "Education",
+          "value": "Fourth-year Integrated M.Sc. Software Systems, PSG College of Technology, Coimbatore (2023–2028)"
+        },
+        {
+          "label": "Experience",
+          "value": "Software Engineering Intern, Jungroo AI Labs (May 2026 – Present): a production RAG + LLM platform, and an observability platform for AI coding agents"
+        },
+        {
+          "label": "Strongest at",
+          "value": "Backend systems, LLM and RAG pipelines, performance and reliability work"
+        },
+        {
+          "label": "Looking for",
+          "value": "Software engineering roles · Class of 2028"
+        }
+      ],
+      "highlights": [
+        "**+75% LLM throughput** (32 → 56 calls/min) while migrating a production system to an on-prem model",
+        "**6× faster closing remarks** on the user-facing portal (27.8 s → 4.5 s), plus multi-provider failover",
+        "**Built an observability platform** for AI coding agents largely end-to-end, then made it multi-tenant"
+      ]
+    },
+    "engineer": {
+      "title": "The deep version",
+      "body": "Every case file here is written the same way: the challenge, what I did, and the measured result. Three good places to start:",
+      "jumps": [
+        {
+          "label": "A 1–40 concurrency load study that blamed the gateway, not the GPU",
+          "href": "/work/gst-platform/"
+        },
+        {
+          "label": "An attribution bug that counted ~1,700 AI-assisted sessions as manual edits",
+          "href": "/work/zealot/"
+        },
+        {
+          "label": "Reconciling 20,177 judgments to an exact match across three environments",
+          "href": "/work/gst-platform/#story-2"
+        }
+      ],
+      "tip": "Press Ctrl K (or ⌘K) to jump anywhere on this site."
+    },
+    "friend": {
+      "title": "The human version",
+      "body": "Just a tech enthusiast who loves coding, gaming and exploring new places. I run on an unhealthy amount of tea and Tamil rap, and I pretend to be good at games. Welcome to my corner of the internet.",
+      "jumps": [
+        {
+          "label": "See what we have in common",
+          "href": "#common"
+        },
+        {
+          "label": "Things I built for myself",
+          "href": "#projects"
+        },
+        {
+          "label": "Say hi",
+          "href": "#contact"
+        }
+      ]
+    }
+  },
+  "metrics": [
+    {
+      "id": "throughput",
+      "label": "LLM throughput",
+      "before": 32,
+      "after": 56,
+      "unit": "calls/min",
+      "decimals": 0,
+      "better": "higher",
+      "delta": "+75%",
+      "note": "On-prem model migration and a 1–40 concurrency load study"
+    },
+    {
+      "id": "response",
+      "label": "Closing-remarks response time",
+      "before": 27.8,
+      "after": 4.5,
+      "unit": "s",
+      "decimals": 1,
+      "better": "lower",
+      "delta": "6× faster",
+      "note": "User portal: dropped statute PDFs (34% of the prompt) from the call"
+    },
+    {
+      "id": "tokens",
+      "label": "Case-law tokens in order drafts",
+      "before": 3.8,
+      "after": 2.7,
+      "unit": "M tokens",
+      "decimals": 1,
+      "better": "lower",
+      "delta": "−28.5%",
+      "note": "Across a 743-judgment set, cached summaries instead of full text (28.5% on the exact counts)"
+    },
+    {
+      "id": "p50",
+      "label": "Dashboard p50 latency",
+      "before": 3.2,
+      "after": 1.25,
+      "unit": "s",
+      "decimals": 2,
+      "better": "lower",
+      "delta": "−61%",
+      "note": "Profiling found settings reloaded 45,642 times per call"
+    }
+  ],
+  "work": {
+    "title": "Case files",
+    "intro": "Two internships, one habit: measure first. Open a case file for the challenge, what I did, and the measured result.",
+    "experience": [
+      {
+        "id": "jungroo",
+        "org": "Jungroo AI Labs",
+        "role": "Software Engineering Intern",
+        "period": "May 2026 – Present",
+        "location": "Remote",
+        "url": "",
+        "bullets": [],
+        "tracks": [
+          {
+            "id": "gst-platform",
+            "title": "GST Adjudication AI Platform",
+            "tagline": "A production RAG + LLM system that drafts GST adjudication orders",
+            "summary": "An LLM-powered system that reads GST tax notices, extracts the legal issues, retrieves the relevant case law and drafts adjudication orders for officers. I worked across the backend pipeline: model migration, retrieval quality, corpus integrity, token economics, latency, security and production stability.",
+            "bullets": [
+              "**Raised LLM throughput 75% (32 → 56 calls/min)** while migrating to an on-prem Gemma 4 26B deployment (vLLM, A100); a 1–40 concurrency load study traced the bottleneck to a gateway cap, not the GPU.",
+              "**Cut the user portal’s closing-remarks time 6× (27.8 s → 4.5 s)** and added multi-provider LLM failover (Gemini, OpenRouter) so drafts survive endpoint overloads.",
+              "**Cut case-law token cost in order drafts 28.5% (3.8M → 2.7M)** with cached case-law summaries; made issue extraction repeatable with an enumeration pass.",
+              "**Rebuilt and verified the RAG legal corpus:** re-fetched 13,545 judgments as original HTML, ingested 547 new ones, and reconciled all 20,177 to an exact match between storage and Qdrant across 3 environments.",
+              "**Red-teamed production before client handoff:** 5 prompt-injection routes, 0 leaks; closed a critical route that exposed all 21 production prompts."
+            ],
+            "metrics": [
+              "throughput",
+              "response",
+              "tokens"
+            ],
+            "stack": [
+              "Python",
+              "FastAPI",
+              "RAG pipelines",
+              "vLLM",
+              "Qdrant",
+              "BGE embeddings",
+              "Vertex AI",
+              "MySQL",
+              "SQL",
+              "Google Cloud Platform",
+              "React",
+              "TypeScript",
+              "Linux"
+            ],
+            "flow": [
+              {
+                "label": "Notice in",
+                "note": "PDF, or scanned pages through OCR"
+              },
+              {
+                "label": "Issues",
+                "note": "Enumeration pass, then extraction"
+              },
+              {
+                "label": "Retrieval",
+                "note": "Qdrant + BGE, time-aware gate"
+              },
+              {
+                "label": "Draft",
+                "note": "On-prem Gemma, token-budgeted"
+              },
+              {
+                "label": "Order out",
+                "note": "Word / PDF with verified citations"
+              }
+            ],
+            "stories": [
+              {
+                "title": "Found the real bottleneck: a gateway cap, not the GPU",
+                "impact": "Throughput 32 → 56 LLM calls/min. Concurrent capacity about 13 → about 40 parallel calls.",
+                "challenge": "The platform ran on a hosted model endpoint with unknown limits. Only about four notices could run in parallel, each slowed sharply beyond that, and there was no data on real capacity.",
+                "action": "Migrated the LLM provider to an env-configurable on-prem Gemma 4 26B deployment (A100 80GB), then ran a metrics-driven capacity study against the live serving metrics, profiling per-call token cost and latency from N=1 to N=40. The data showed the real bottleneck was a gateway concurrency cap, not the GPU.",
+                "result": "Lifting the cap raised throughput to 56 calls/min with only a mild latency rise, and produced an accurate model for a semaphore + queue scheduler to govern load safely."
+              },
+              {
+                "title": "Rebuilt and verified the legal corpus against the source",
+                "impact": "13,545 judgments re-fetched as original HTML, 547 new ones ingested, and 20,177 in storage = 20,177 in Qdrant with 0 missing, on all three environments.",
+                "challenge": "Nobody knew whether the RAG knowledge base was complete. Documents were missing or stale, the three vector-database environments had drifted apart, and about three-quarters of the case-law corpus was stored as reformatted text rather than the original judgment.",
+                "action": "Wrote fetch-and-reconcile pipelines per corpus with reconciliation spreadsheets, deduplicated on composite keys, built an idempotent replication job with exact-count verification, bulk re-fetched the original HTML with a per-result citation check, and incrementally ingested 547 new judgments into each Qdrant instance.",
+                "result": "Every corpus traceably matches the authoritative source across staging, production and the user portal, and officers see the genuine original judgment when they open a provision."
+              },
+              {
+                "title": "Made issue detection stable and repeatable",
+                "impact": "Issue counts on the same notice went from [3, 1, 2, 2, 1, 3, 1] across 7 runs to [3, 3, 3, 3, 3] across 5.",
+                "challenge": "The same document could yield a different number of issues on every run. That is unacceptable for a legal tool.",
+                "action": "Diagnosed the reasoning layer's over-pruning on long inputs and tuned the thinking budget. Then added a focused enumeration pass: a narrow \"list the grounds of demand\" call (3–5 s versus 19–37 s for full extraction) that pins an authoritative issue list before extraction, with a fallback to the old path.",
+                "result": "Reliable, complete and repeatable issue detection, verified across repeated runs and deployed to production."
+              },
+              {
+                "title": "Cut draft token cost 28.5% with cached case-law summaries",
+                "impact": "743 of 743 listed case laws summarised with 0 degraded. Tokens across that set went from 3.8M to 2.7M.",
+                "challenge": "Full-text judgments bloated the draft context, pushing up cost and crowding other evidence out of the window.",
+                "action": "Built an on-the-fly case-law summariser with a shared summary cache, pre-built so production hits the cache from the first order. Kept hyperlinks pointing to the original judgment and compared summary quality across providers before rollout.",
+                "result": "Leaner, cheaper drafts that still cite and link the full original judgment."
+              },
+              {
+                "title": "Closing remarks 6× faster, drafts far harder to break",
+                "impact": "Closing remarks 27.8 s → 4.5 s. Drafts no longer fail as \"null issues\" when the model drifts.",
+                "challenge": "The hosted model flattened the issue JSON schema, leaked chain-of-thought into user-visible text and failed on transient errors, while large statute PDFs slowed every call.",
+                "action": "Rewrote notice processing with a 3-tier extraction fallback (full JSON → minimal schema → pipe-delimited), stripped chain-of-thought from every text-output path, added shape guards, dropped legal PDFs from the closing-remarks call, and added alternate providers with retries so one overloaded endpoint no longer fails the user's request.",
+                "result": "Faster, cleaner and far more dependable user-facing drafts, on a serving stack that degrades gracefully across providers."
+              },
+              {
+                "title": "Root-caused the \"random\" server crashes",
+                "impact": "Unexplained, recurring production downtime became a deterministic root cause with concrete remediations.",
+                "challenge": "The user-portal VM kept going down at apparently random times, with no crash logs pointing anywhere useful.",
+                "action": "Traced it to memory exhaustion: the ASGI server ran three workers, each loading its own copy of the embedding model, on an 8 GB VM co-located with the vector database and configured with zero swap.",
+                "result": "\"The server crashes randomly\" became a fixable capacity problem: reduce worker duplication, add swap, or separate the co-located services."
+              },
+              {
+                "title": "Extended the pipeline to scanned, image-only notices",
+                "impact": "Page payloads 7–8.6× smaller (4.6 MB → 570 KB). Pages went from 300 s timeouts to 6.6–21.4 s.",
+                "challenge": "A significant share of real notices are scanned images with no extractable text. Once OCR was added through the model's vision capability, large PNG pages timed out and dropped silently.",
+                "action": "Switched pages to JPEG (q80), added two attempts per page, logged dropped pages loudly, made context budgeting provider-aware, and scrubbed vision reasoning traces from OCR output at the source.",
+                "result": "The platform ingests scanned notices and replies end-to-end, reliably, alongside native-text documents."
+              },
+              {
+                "title": "Cut authenticated-request database load by about 80%",
+                "impact": "Every authenticated request dropped from about 5 database round-trips to 1.",
+                "challenge": "Each API request re-validated the session and user against the database multiple times, adding latency and load under concurrency.",
+                "action": "Designed a pluggable, Redis-ready session cache with a cache-first validation path and an authoritative database fallback. Login pre-populates the cache, logout and refresh invalidate it, and last-activity is flushed every 60 s instead of on every request.",
+                "result": "About 80% fewer round-trips per authenticated request, and a clear path to horizontal scaling."
+              },
+              {
+                "title": "Red-teamed the platform before the client handoff",
+                "impact": "5 prompt-injection routes tested, 0 leaks. One critical exposure closed.",
+                "challenge": "Before the client handoff, the platform’s prompt layer needed to be proven against injection.",
+                "action": "Tested five prompt-injection routes against the platform, and closed a critical route that exposed all 21 production prompts.",
+                "result": "0 leaks across the five routes, and the critical exposure closed before the handoff."
+              }
+            ],
+            "visual": "corpus",
+            "visualCount": 20177,
+            "visualCaption": "Every dot is one of the 20,177 judgments in the corpus. The red point is a question finding its nearest neighbours."
+          },
+          {
+            "id": "zealot",
+            "title": "Zealot",
+            "tagline": "An observability platform for AI coding agents, built largely end-to-end",
+            "summary": "Zealot measures how engineering teams actually use AI coding agents. A lightweight agent on each developer machine reads local Claude Code, Codex, Cursor and VS Code activity, rolls each session into structured signals (prompts, responses, edits, active time, cost, human-vs-AI attribution) and syncs them to a central server that renders a dashboard for engineering leaders, with LLM-generated summaries.",
+            "bullets": [
+              "**Built the full pipeline:** cross-platform Python agent → FastAPI ingest → PostgreSQL → leadership dashboard with LLM summaries, capturing Claude Code, Codex, Cursor and VS Code usage across a 10-developer fleet.",
+              "**Re-architected it into a multi-tenant platform** with role-based access and verified org isolation; **cut dashboard p50 latency 61% (3.2 s → 1.25 s)** through profiling.",
+              "**Fixed human-vs-AI edit attribution:** ~1,700 AI-assisted sessions had been counted as manual edits; cleared 1,645 duplicate edit groups in production."
+            ],
+            "metrics": [
+              "p50"
+            ],
+            "stack": [
+              "Python",
+              "FastAPI",
+              "PostgreSQL",
+              "SQL",
+              "Multi-tenancy",
+              "RBAC",
+              "Gemini",
+              "Caddy",
+              "Docker",
+              "Linux",
+              "Git"
+            ],
+            "flow": [
+              {
+                "label": "IDE activity",
+                "note": "Claude Code, Codex, Cursor, VS Code"
+              },
+              {
+                "label": "Agent",
+                "note": "Stdlib-only Python, delta sync, self-update"
+              },
+              {
+                "label": "Ingest",
+                "note": "FastAPI, tenant stamped on write"
+              },
+              {
+                "label": "PostgreSQL",
+                "note": "Tenant-scoped, role-based access"
+              },
+              {
+                "label": "Dashboard",
+                "note": "Active hours, cost, LLM summaries"
+              }
+            ],
+            "stories": [
+              {
+                "title": "Designed and built the capture-to-dashboard platform",
+                "impact": "A working, deployed end-to-end system: sync agent → ingest server → PostgreSQL → leadership dashboard.",
+                "challenge": "Engineering leaders had no visibility into how AI coding agents were actually being used. There were only raw, per-machine transcript files that nobody could aggregate.",
+                "action": "Built a stdlib-only, cross-platform Python client that re-parses changed transcripts and uploads incrementally on a roughly 5-minute schedule with self-update, and a server with PostgreSQL storage, a server-rendered dashboard and LLM-generated day and session summaries, fronted by Caddy for TLS.",
+                "result": "A single dashboard where leaders see the real prompt → generate → verify → correct loop across the team, not just usage counters."
+              },
+              {
+                "title": "Re-architected it into a multi-tenant, role-based platform",
+                "impact": "From a single-team internal tool to one deployment that can serve many organisations, each isolated, with role-based access.",
+                "challenge": "The original single-process server assumed one team and one trust boundary. Serving several organisations meant every query, page and ingest path had to be tenant-scoped, with zero chance of one organisation seeing another's data.",
+                "action": "Rewrote the server on FastAPI with a layered routers → repositories → db architecture, threaded tenant_id through every layer and stamped it on ingest, added RBAC through a role-permissions model, built a superadmin console with tenant switching, and verified organisation isolation end-to-end.",
+                "result": "A multi-tenant platform with verified data isolation and least-privilege access."
+              },
+              {
+                "title": "Made human-vs-AI attribution trustworthy",
+                "impact": "About 1,700 AI-assisted sessions had been counted as manual edits. 1,645 duplicate edit groups cleared on production.",
+                "challenge": "VS Code exposes no structured session records, so terminal, tool and agent writes were invisible or labelled manual, and work by an agent appeared twice: once in the agent session and again as a hand edit.",
+                "action": "Built VS Code capture on a git working-tree delta source plus a commit-delta source, matched to Local History by content hash. Added a cross-source ledger so the same edit is never recorded twice, and a backfill that repaired historic duplicates.",
+                "result": "An accurate manual-vs-AI split across Claude Code, Codex, Cursor and VS Code, verified against live production data."
+              },
+              {
+                "title": "Cut dashboard latency 61% by profiling",
+                "impact": "Aggregation p50 3,188 → 1,249 ms. Worst case 5,251 → 1,824 ms.",
+                "challenge": "The dashboard had become slow as data grew, with no obvious culprit.",
+                "action": "Profiled the aggregation path and found settings being reloaded 45,642 times per aggregate() call. Removed the redundant loads.",
+                "result": "A dashboard that loads in about a second instead of three to five."
+              },
+              {
+                "title": "Kept the fleet syncing when one parser crashed",
+                "impact": "Heartbeats restored across the fleet, back to 9 of 10 users reporting.",
+                "challenge": "A crash in any single capture source aborted the entire sync, so the machine silently vanished from the dashboard.",
+                "action": "Isolated each source's sync so one failure cannot take down the rest, scrubbed NUL bytes on ingest, and suppressed console windows during Windows sweeps.",
+                "result": "One bad transcript no longer blinds the dashboard to a developer."
+              },
+              {
+                "title": "Honest token and cost accounting",
+                "impact": "Fixed a bug that double-counted tokens (about 2× reality) and corrected the pricing table to published rates.",
+                "challenge": "Early cost figures were unreliable: usage was counted twice, pricing was off, and cache-write billing wasn't modelled.",
+                "action": "Made usage count each assistant message exactly once, corrected the pricing table, billed cache writes by TTL, and surfaced per-model breakdowns labelled as list-price value, not an invoice.",
+                "result": "Cost and token numbers leaders can rely on, broken down by model."
+              }
+            ],
+            "visual": "fleet",
+            "visualCount": 10,
+            "visualCaption": "Ten developer machines streaming what four AI coding tools did to one dashboard."
+          }
+        ],
+        "also": [
+          {
+            "title": "Mentorship portal for an education NGO",
+            "body": "Took over a crash-prone React + Supabase build and stabilised it into the system a live programme runs on (34 mentors), including a fix for a design flaw that erased a child's progress whenever she was re-assigned."
+          },
+          {
+            "title": "Voice assistant for Microsoft 365 (proof of concept)",
+            "body": "Reads and acts on mail, Teams and calendar by voice. Send guardrails live in code, not in the prompt: nothing goes out without an explicit click. In a local-model injection test, a planted instruction got the attacker’s address used in 0 of 6 tool turns."
+          },
+          {
+            "title": "Recall server for coding agents (MCP)",
+            "body": "A tenant-isolated MCP server that lets Claude, Codex and Cursor search a team's past decisions. Hybrid vector + full-text ranking put the right thread first on 5 of 5 meaning-based queries that full-text search missed. Built, validated on seeded data and handed off."
+          },
+          {
+            "title": "Solution design: WhatsApp shift-availability checks",
+            "body": "High- and low-level design for a 1,000–10,000-employee system that messages each person before their own shift, exactly once, with about 70% reuse of an existing bot platform."
+          },
+          {
+            "title": "A website's history, rebuilt from public archives",
+            "body": "Dated four versions of a site that had no git history, using Wayback Machine and Common Crawl captures, rebuilt one homepage from 87 archived assets, and recorded SHA-256 provenance for every file."
+          }
+        ]
+      },
+      {
+        "id": "ifp",
+        "org": "French Institute of Pondicherry (IFP)",
+        "role": "Summer Intern, Dept. of Geomatics",
+        "period": "May 2025 – Jun 2025",
+        "location": "On-site",
+        "url": "",
+        "bullets": [
+          "Migrated the BIOTIK backend (a Western Ghats tree-identification system) from PHP 7.4 to 8.0, fixing deprecated code, unstable APIs and slow queries.",
+          "Regression-tested the APIs to confirm nothing broke."
+        ],
+        "tracks": [],
+        "also": []
+      }
+    ]
+  },
+  "projects": {
+    "title": "Side builds",
+    "intro": "Things I built because I wanted them to exist.",
+    "showGithubFeed": true,
+    "items": [
+      {
+        "id": "flash-point",
+        "title": "Flash Point",
+        "year": "2026",
+        "tagline": "Real-time transcription for mics, uploads and live streams",
+        "description": "A real-time transcription platform that streams speech-to-text for microphone input, uploaded media and live streams over persistent WebSockets, with a custom FFmpeg + yt-dlp ingest pipeline and keyword alerts that fire as words are spoken.",
+        "highlights": [
+          "Under 300 ms latency over persistent WebSockets",
+          "Handles live microphone audio, file uploads up to 500 MB and YouTube live streams",
+          "Keyword alerts in a \"Mission Control\" sidebar"
+        ],
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "Fastify",
+          "Socket.IO",
+          "Deepgram",
+          "FFmpeg"
+        ],
+        "tags": [
+          "AI",
+          "Web"
+        ],
+        "live": "https://flash-point-bay.vercel.app/",
+        "repo": "https://github.com/idhanth17/Flash-Point",
+        "image": "",
+        "featured": true,
+        "status": "The demo backend sleeps on a free tier: the first connection can take about a minute",
+        "statValue": "<300 ms",
+        "statLabel": "speech-to-text latency",
+        "emblem": "waveform"
+      },
+      {
+        "id": "lottery",
+        "title": "Psychic Lottery Optimizer",
+        "year": "2026",
+        "tagline": "The smallest set of tickets that mathematically guarantees a prize",
+        "description": "A dependency-free, in-browser solver for Skiena's psychic lottery problem, an NP-hard set-cover instance. It uses bitmask encodings and a greedy ln(n)-approximation with randomized restarts, then independently verifies every worst-case scenario before showing a result.",
+        "highlights": [
+          "Cut the ticket set from 5,005 to a verified covering set of 17",
+          "Coverage tests are a single AND plus a popcount lookup",
+          "Includes a draw-night simulator that proves the guarantee live"
+        ],
+        "stack": [
+          "JavaScript"
+        ],
+        "tags": [
+          "Algorithms",
+          "Web"
+        ],
+        "live": "https://idhanth17.github.io/Lottery_Simulator/",
+        "repo": "https://github.com/idhanth17/Lottery_Simulator",
+        "image": "",
+        "featured": true,
+        "status": "",
+        "statValue": "5,005 → 17",
+        "statLabel": "tickets for a guaranteed win",
+        "emblem": "lottery"
+      },
+      {
+        "id": "screen-track",
+        "title": "Screen Track",
+        "year": "2026",
+        "tagline": "A screen-time tracker that classifies your time without being told",
+        "description": "A screen-time tracker with automatic, context-aware classification. It sorts time into Work, Productivity, Study, Entertainment and Social without you setting a mode, and it resolves the hard case, YouTube, at the channel level, learning from every correction.",
+        "highlights": [
+          "Rust core for OS capture, storage and classification, shipped as a native tray app",
+          "A bundled offline classifier handles apps and sites it has never seen",
+          "Companion extension for Chrome, Edge, Brave and Firefox",
+          "One-command install and signed self-updates"
+        ],
+        "stack": [
+          "Rust",
+          "Tauri",
+          "JavaScript"
+        ],
+        "tags": [
+          "Systems",
+          "AI"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/screen-track",
+        "image": "",
+        "featured": true,
+        "status": "Windows first; macOS capture written but unverified",
+        "statValue": "100+",
+        "statLabel": "apps and sites classified out of the box",
+        "emblem": "rings"
+      },
+      {
+        "id": "anvil",
+        "title": "Anvil",
+        "year": "2026",
+        "tagline": "A commitment engine for Android",
+        "description": "A commitment engine built on one design bet: letting you edit today's plan today is the bug every habit app has. Tomorrow's plan is negotiated with an AI planner in a single evening window. During the day it is read-only, and a \"warden\" accepts evidence, never arguments.",
+        "highlights": [
+          "Planner / Warden split: the AI reasons only when planning, never when enforcing",
+          "Proof instead of promises: geofence check-ins, QR scans, a proof-gated alarm",
+          "Escape is always possible, silence never is: a bypass costs a timed wait and a logged reason"
+        ],
+        "stack": [
+          "Kotlin",
+          "Jetpack Compose",
+          "Claude API"
+        ],
+        "tags": [
+          "Mobile",
+          "AI"
+        ],
+        "live": "",
+        "repo": "",
+        "image": "",
+        "featured": true,
+        "status": "Personal tool · private source",
+        "statValue": "Read-only",
+        "statLabel": "today's plan, all day",
+        "emblem": "anvil"
+      },
+      {
+        "id": "atis",
+        "title": "ATIS",
+        "year": "2026",
+        "tagline": "A trading research system that refuses to lie to itself",
+        "description": "ATIS (AI Trading Intelligence System) is a research project for Indian markets, built free-first and safety-first. Most retail algo projects fail because their simulator lies to them, so the first thing it builds is the measurement machinery: paper trading, pessimistic simulation and the full Indian cost model. The strategy layer is rule-based so far, and no real money moves until the system has earned it.",
+        "highlights": [
+          "Paper trading and pessimistic simulation before any live order",
+          "Models the real cost of a trade: brokerage, taxes and exchange charges",
+          "Security and compliance documented as first-class modules"
+        ],
+        "stack": [
+          "Python",
+          "Pydantic",
+          "pandas"
+        ],
+        "tags": [
+          "Data",
+          "Algorithms"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/atis",
+        "image": "",
+        "featured": true,
+        "status": "Research project · paper trading only",
+        "statValue": "Paper only",
+        "statLabel": "no real money until the simulator earns it",
+        "emblem": "candles"
+      },
+      {
+        "id": "agentic-workflow-builder",
+        "title": "Agentic Workflow Builder",
+        "year": "2026",
+        "tagline": "Build, run and watch multi-step AI workflows",
+        "description": "A full-stack app for building, executing and monitoring multi-step AI workflows, where the output of one step feeds the context of the next. Steps retry automatically, validate their output against JSON or regex criteria, and fall back to another model when one fails.",
+        "highlights": [
+          "Chained execution across models",
+          "Live step-by-step progress over WebSockets",
+          "Retries, output validation and model fallback"
+        ],
+        "stack": [
+          "React",
+          "Node.js",
+          "PostgreSQL",
+          "JavaScript"
+        ],
+        "tags": [
+          "AI",
+          "Web"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/Agentic-Workflow-Builder",
+        "image": "",
+        "featured": true,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": "graph"
+      },
+      {
+        "id": "ascent",
+        "title": "Ascent",
+        "year": "2026",
+        "tagline": "An AI fitness coach for Android that plans the week and adapts to it",
+        "description": "A 24-question survey becomes a roadmap and a first week. Workouts are logged with effort, and the coach gives feedback and can rework the week. A two-model split keeps it cheap: a full onboarding, feedback, chat and replan measured at $0.07.",
+        "highlights": [],
+        "stack": [
+          "Kotlin",
+          "Jetpack Compose",
+          "Claude API"
+        ],
+        "tags": [
+          "Mobile",
+          "AI"
+        ],
+        "live": "",
+        "repo": "",
+        "image": "",
+        "featured": false,
+        "status": "Personal tool · private source",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "inkwell",
+        "title": "Inkwell",
+        "year": "2026",
+        "tagline": "A desktop writing app built to be a place I'd actually want to write in",
+        "description": "A desktop app for creative writing. Grammar and spelling run offline through Harper (WASM), underlines are drawn with the CSS Custom Highlight API so the document itself is never touched, and pieces export to PDF, DOCX, EPUB and Markdown.",
+        "highlights": [],
+        "stack": [
+          "Electron",
+          "JavaScript"
+        ],
+        "tags": [
+          "Web"
+        ],
+        "live": "",
+        "repo": "",
+        "image": "",
+        "featured": false,
+        "status": "Personal tool · private source",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "research-assistant",
+        "title": "Local Research Assistant",
+        "year": "2026",
+        "tagline": "Offline RAG over PDFs, with page-level citations",
+        "description": "A fully offline, chat-based research assistant that answers questions from scientific papers. It builds a FAISS index over the documents and runs a CPU-friendly local model, so no API keys are needed, and every answer cites the source document and page.",
+        "highlights": [],
+        "stack": [
+          "Python",
+          "LangChain",
+          "RAG pipelines",
+          "FAISS"
+        ],
+        "tags": [
+          "AI"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/Research-assist-RAG",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "log-monitor",
+        "title": "Distributed Log Monitor",
+        "year": "2026",
+        "tagline": "Centralised log ingestion with role-based access",
+        "description": "An access-controlled platform for distributed logging and service monitoring: nodes ship logs to a central collector, with role-based access, a service registry, and live session tracking.",
+        "highlights": [],
+        "stack": [
+          "Python",
+          "SQL",
+          "Docker"
+        ],
+        "tags": [
+          "Systems"
+        ],
+        "live": "",
+        "repo": "",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "adaptive-cms",
+        "title": "Adaptive 3D CMS",
+        "year": "2026",
+        "tagline": "The previous version of this site",
+        "description": "A 3D portfolio CMS with persona-based content routing and a role-based admin dashboard on serverless PostgreSQL. The \"who's reading?\" idea on this site started there.",
+        "highlights": [],
+        "stack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "PostgreSQL"
+        ],
+        "tags": [
+          "Web"
+        ],
+        "live": "https://idhanth-portfolio.vercel.app/",
+        "repo": "https://github.com/idhanth17/Portfolio_Website",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "ambulance-dispatch",
+        "title": "Smart Ambulance Dispatch",
+        "year": "2025",
+        "tagline": "A dispatch console for ambulances, patients and hospitals",
+        "description": "A JavaFX desktop console on a Spring Boot + MySQL REST backend: register ambulances, patients and hospitals, pick an on-duty ambulance for a patient, and see them on a map.",
+        "highlights": [],
+        "stack": [
+          "Java",
+          "Spring Boot",
+          "JavaFX",
+          "MySQL"
+        ],
+        "tags": [
+          "Systems"
+        ],
+        "live": "",
+        "repo": "",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "stumpstats",
+        "title": "StumpStats Predictor",
+        "year": "2025",
+        "tagline": "Predicting runs per over in IPL matches",
+        "description": "Over-by-over run-rate prediction from ball-by-ball IPL data, comparing an ARIMA baseline with XGBoost and LightGBM on a match-wise time-series split. LightGBM tracked the run rate best.",
+        "highlights": [],
+        "stack": [
+          "Python"
+        ],
+        "tags": [
+          "Data"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/StumpStats_Predictor",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "spark-crypto",
+        "title": "SparkCryptoTrend",
+        "year": "2025",
+        "tagline": "Streaming trend prediction on live ticker data",
+        "description": "A Spark Structured Streaming pipeline that ingests live cryptocurrency ticker data, cleans it in micro-batches and applies a trained random-forest classifier to flag trending pairs.",
+        "highlights": [],
+        "stack": [
+          "Python",
+          "Apache Spark"
+        ],
+        "tags": [
+          "Data"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/SparkCryptoTrend",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "vigorvanguard",
+        "title": "VigorVanguard Gym Portal",
+        "year": "2025",
+        "tagline": "An onboarding site for a gym",
+        "description": "A responsive onboarding and membership site for gyms and fitness centres.",
+        "highlights": [],
+        "stack": [
+          "React",
+          "TypeScript"
+        ],
+        "tags": [
+          "Web"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/VigorVanguard_Gym_Portal",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "landslide",
+        "title": "Landslide Predictor",
+        "year": "2024",
+        "tagline": "A sensor network and a model for landslide warnings",
+        "description": "A two-part landslide warning system: an ESP8266 sensor network that monitors rainfall and soil moisture, and a web app that runs location-specific data through a prediction model.",
+        "highlights": [],
+        "stack": [
+          "Python",
+          "Flask",
+          "scikit-learn",
+          "Arduino"
+        ],
+        "tags": [
+          "Data",
+          "Systems"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/Landslide-Predictor",
+        "image": "",
+        "featured": false,
+        "status": "Team project",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "delivery-route",
+        "title": "Delivery Route Optimizer",
+        "year": "2024",
+        "tagline": "A desktop delivery route planner",
+        "description": "A delivery route planner with a Tkinter interface: it finds the shortest route between pin codes with Dijkstra’s algorithm, using geopy for distances.",
+        "highlights": [],
+        "stack": [
+          "Python"
+        ],
+        "tags": [
+          "Algorithms"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/Delivery-Route-optimizer",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      },
+      {
+        "id": "cyber-pulse",
+        "title": "Cyber Pulse",
+        "year": "2023",
+        "tagline": "Where it started: a records manager in C",
+        "description": "A first-year project that folds several record-management systems into one, built on file handling in C.",
+        "highlights": [],
+        "stack": [
+          "C"
+        ],
+        "tags": [
+          "Systems"
+        ],
+        "live": "",
+        "repo": "https://github.com/idhanth17/Cyber_Pulse",
+        "image": "",
+        "featured": false,
+        "status": "",
+        "statValue": "",
+        "statLabel": "",
+        "emblem": ""
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills, with receipts",
+    "intro": "Pick a skill to see where I’ve actually used it. A dashed outline means I’ve worked with it but haven’t shown a project here yet.",
+    "groups": [
+      {
+        "group": "Languages",
+        "items": [
+          "Python",
+          "TypeScript",
+          "JavaScript",
+          "Java",
+          "SQL"
+        ]
+      },
+      {
+        "group": "Backend & AI",
+        "items": [
+          "FastAPI",
+          "Node.js",
+          "LangChain",
+          "RAG pipelines",
+          "vLLM",
+          "Vertex AI"
+        ]
+      },
+      {
+        "group": "Frontend",
+        "items": [
+          "React",
+          "Next.js"
+        ]
+      },
+      {
+        "group": "Databases",
+        "items": [
+          "PostgreSQL",
+          "MySQL",
+          "MongoDB",
+          "Neo4j",
+          "Qdrant",
+          "FAISS"
+        ]
+      },
+      {
+        "group": "Cloud & Tools",
+        "items": [
+          "Google Cloud Platform",
+          "Docker",
+          "Linux",
+          "Git"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "About",
+    "bio": [
+      "I'm a fourth-year student in the five-year Integrated M.Sc. Software Systems programme at PSG College of Technology, Coimbatore, and a software engineering intern at Jungroo AI Labs, where I work on production LLM systems.",
+      "The work I enjoy most starts with an ambiguous question (why is this slow, why does it give a different answer every time, is this even complete?) and ends with a measurement, a root cause and a fix.",
+      "I like taking things from zero to one: shape the idea, design it, hunt the edge cases, build it, test it, polish it."
+    ],
+    "principlesTitle": "How I work",
+    "principles": [
+      {
+        "title": "Measure before touching anything",
+        "body": "A capacity study, a profile, a benchmark. The fix that follows is usually smaller than the one everybody expected."
+      },
+      {
+        "title": "Blame the right component",
+        "body": "The GPU wasn't the bottleneck, a gateway cap was. The prompt wasn't too strict, the context was silently overflowing. The obvious suspect is often innocent."
+      },
+      {
+        "title": "Guardrails in code, not in prompts",
+        "body": "If an assistant can send on your behalf, the rules live where a clever sentence can't rewrite them."
+      },
+      {
+        "title": "No number, no claim",
+        "body": "Numbers on this site come from commit records, test output and reports. Where there's no measurement, I don't claim one."
+      }
+    ],
+    "education": [
+      {
+        "school": "PSG College of Technology, Coimbatore",
+        "degree": "Integrated M.Sc. Software Systems (5-year)",
+        "period": "2023 – 2028",
+        "note": ""
+      }
+    ],
+    "activities": [
+      "Best Speaker award: first place at the Speakers Hive Club",
+      "Pre-Production team, Radio Hub Club",
+      "Competed in multiple inter-college hackathons",
+      "Freelance: built a fitness app for a client"
+    ],
+    "commonTitle": "Things we might have in common",
+    "commonIntro": "Tap the ones we share.",
+    "common": [
+      {
+        "emoji": "🍕",
+        "text": "Coding late at night with pizza"
+      },
+      {
+        "emoji": "🎵",
+        "text": "Listening to Tamil rap"
+      },
+      {
+        "emoji": "🤔",
+        "text": "Googling error messages"
+      },
+      {
+        "emoji": "☕",
+        "text": "Unhealthy amounts of tea"
+      },
+      {
+        "emoji": "🎮",
+        "text": "Pretending to be good at games"
+      },
+      {
+        "emoji": "🚀",
+        "text": "Dreaming about space travel"
+      },
+      {
+        "emoji": "🎬",
+        "text": "Sci-fi movies"
+      },
+      {
+        "emoji": "📺",
+        "text": "Sitcoms"
+      },
+      {
+        "emoji": "🏓",
+        "text": "Pickleball"
+      },
+      {
+        "emoji": "✈️",
+        "text": "Exploring new places"
+      }
+    ]
+  },
+  "writing": {
+    "title": "Notes",
+    "intro": "Write-ups on things I've measured, broken and fixed.",
+    "posts": [
+      {
+        "slug": "the-gpu-was-innocent",
+        "title": "The GPU was innocent",
+        "date": "2026-11-15",
+        "summary": "How a 1–40 concurrency load study moved the blame from the GPU to a gateway cap.",
+        "tags": [
+          "performance",
+          "llm"
+        ],
+        "published": false
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Have a system that's slow, flaky or expensive?",
+    "sub": "Or a role where that kind of work matters. Either way, I'd like to hear about it."
+  },
+  "footer": {
+    "note": "Designed and built from scratch. Prerendered to static HTML."
+  }
+}

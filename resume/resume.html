@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>S Idhanth Karthik - Resume</title>
+<style>
+  @page { size: A4; margin: 11mm 13mm 10mm 13mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+    font-size: 10.2pt; line-height: 1.3; color: #1c1c1c;
+    font-variant-ligatures: none;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* Header */
+  header { text-align: center; margin-bottom: 5pt; }
+  h1 {
+    font-family: Cambria, Georgia, serif;
+    font-size: 23pt; font-weight: 700; letter-spacing: 0.6pt; color: #14304f;
+    line-height: 1.1;
+  }
+  .tagline { font-size: 10.6pt; color: #444; margin-top: 2pt; letter-spacing: 0.2pt; }
+  .contact { margin-top: 4pt; font-size: 9.5pt; color: #222; white-space: nowrap; }
+  .contact span.sep { color: #9aa7b5; padding: 0 4pt; }
+  .contact a { color: #14304f; }
+
+  /* Sections */
+  h2 {
+    font-family: Cambria, Georgia, serif;
+    font-size: 11pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.1pt;
+    color: #14304f; border-bottom: 0.9pt solid #14304f;
+    padding-bottom: 1.2pt; margin: 8pt 0 4pt 0;
+  }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+  .row .left { flex: 1; }
+  .row .right { white-space: nowrap; color: #333; font-size: 9.8pt; }
+  .org { font-weight: 700; font-size: 10.8pt; }
+  .role { font-style: italic; color: #333; }
+  .sub { font-weight: 700; color: #14304f; margin-top: 3pt; }
+  .sub em { font-weight: 400; color: #444; }
+  ul { margin: 1.5pt 0 0 13pt; }
+  li { margin-bottom: 1.3pt; padding-left: 1pt; text-align: left; }
+  li::marker { color: #14304f; font-size: 8.5pt; }
+  b { font-weight: 700; }
+  .block { margin-bottom: 4pt; }
+  .proj-title { font-weight: 700; font-size: 10.5pt; }
+  .stack { color: #444; font-style: italic; font-size: 9.7pt; }
+  .links a { color: #14304f; text-decoration: underline; text-decoration-color: #9aa7b5; }
+  table.skills { border-collapse: collapse; width: 100%; }
+  table.skills td { padding: 0.6pt 0; vertical-align: top; }
+  table.skills td:first-child { font-weight: 700; width: 92pt; color: #14304f; }
+  .edu-small { color: #333; font-size: 9.8pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>S Idhanth Karthik</h1>
+  <div class="tagline">Software Engineer &middot; Backend &amp; LLM Systems</div>
+  <div class="contact">
+    <a href="mailto:idhanth05@gmail.com">idhanth05@gmail.com</a><span class="sep">|</span><a href="https://github.com/idhanth17">github.com/idhanth17</a><span class="sep">|</span><a href="https://www.linkedin.com/in/idhanth-karthik-0b4192280/">linkedin.com/in/idhanth-karthik</a><span class="sep">|</span><a href="https://idhanth17.github.io/">idhanth17.github.io</a>
+  </div>
+</header>
+
+<h2>Education</h2>
+<div class="row">
+  <div class="left"><span class="org">PSG College of Technology</span>, Coimbatore</div>
+  <div class="right">2023 &ndash; 2028</div>
+</div>
+<div class="row">
+  <div class="left"><span class="role">Integrated M.Sc. Software Systems (5-year)</span></div>
+  <div class="right"><b>CGPA: 7.99 / 10</b></div>
+</div>
+<div class="edu-small" style="margin-top:2pt">Class XII (CBSE), Arsha Vidya Mandir, Chennai, 2023 &ndash; <b>89%</b> &nbsp;&middot;&nbsp; Class X (ICSE), Navadisha Montessori School, Chennai, 2021 &ndash; <b>90%</b></div>
+
+<h2>Experience</h2>
+<div class="block">
+  <div class="row">
+    <div class="left"><span class="org">Jungroo AI Labs</span> &nbsp;<span class="role">Software Engineering Intern</span></div>
+    <div class="right">May 2026 &ndash; Present &middot; Remote</div>
+  </div>
+
+  <div class="sub">GST Adjudication AI Platform <em>&ndash; production RAG + LLM system that drafts GST orders</em></div>
+  <ul>
+    <li><b>Raised LLM throughput 75% (32 &rarr; 56 calls/min)</b> while migrating to an on-prem Gemma 4 26B deployment (vLLM, A100); a 1&ndash;40 concurrency load study traced the bottleneck to a gateway cap, not the GPU.</li>
+    <li><b>Cut user-portal response time 6&times; (27.8 s &rarr; 4.5 s)</b> and added multi-provider LLM failover (Gemini, OpenRouter) so drafts survive endpoint overloads.</li>
+    <li><b>Cut order-draft token cost 28.5% (3.8M &rarr; 2.7M)</b> with cached case-law summaries; made issue extraction repeatable with an enumeration pass.</li>
+    <li><b>Rebuilt and verified the RAG legal corpus:</b> re-fetched 13,545 judgments as original HTML, ingested 547 new ones, and reconciled all 20,177 to an exact match between storage and Qdrant across 3 environments.</li>
+    <li><b>Red-teamed production before client handoff:</b> 5 prompt-injection routes, 0 leaks; closed a critical route that exposed all 21 production prompts.</li>
+  </ul>
+
+  <div class="sub">Zealot <em>&ndash; observability platform for AI coding agents, built largely end-to-end</em></div>
+  <ul>
+    <li><b>Built the full pipeline:</b> cross-platform Python agent &rarr; FastAPI ingest &rarr; PostgreSQL &rarr; leadership dashboard with LLM summaries, capturing Claude Code, Codex, Cursor and VS Code usage across a 10-developer fleet.</li>
+    <li><b>Re-architected it into a multi-tenant platform</b> with role-based access and verified org isolation; <b>cut dashboard p50 latency 61% (3.2 s &rarr; 1.25 s)</b> through profiling.</li>
+    <li><b>Fixed human-vs-AI edit attribution:</b> ~1,700 AI-assisted sessions had been counted as manual edits; cleared 1,645 duplicate edit groups in production.</li>
+  </ul>
+</div>
+
+<div class="block">
+  <div class="row">
+    <div class="left"><span class="org">French Institute of Pondicherry (IFP)</span> &nbsp;<span class="role">Summer Intern, Dept. of Geomatics</span></div>
+    <div class="right">May 2025 &ndash; Jun 2025 &middot; On-site</div>
+  </div>
+  <ul>
+    <li>Migrated the BIOTIK backend (Western Ghats tree-identification system) from PHP 7.4 to 8.0, fixing deprecated code, unstable APIs and slow queries; regression-tested the APIs to confirm nothing broke.</li>
+  </ul>
+</div>
+
+<h2>Projects</h2>
+<div class="block">
+  <div class="row">
+    <div class="left"><span class="proj-title">Flash Point</span> &nbsp;<span class="stack">Next.js, TypeScript, Fastify, Socket.IO, Deepgram, FFmpeg</span></div>
+    <div class="right links"><a href="https://flash-point-bay.vercel.app/">Live</a> &middot; <a href="https://github.com/idhanth17/Flash-Point">GitHub</a></div>
+  </div>
+  <ul>
+    <li>Real-time transcription platform streaming speech-to-text for microphone input, uploaded media and live streams over persistent WebSockets at <b>&lt;300 ms latency</b>, with a custom FFmpeg + yt-dlp ingest pipeline.</li>
+  </ul>
+</div>
+<div class="block">
+  <div class="row">
+    <div class="left"><span class="proj-title">Psychic Lottery Optimizer</span> &nbsp;<span class="stack">JavaScript (ES6+), Node.js</span></div>
+    <div class="right links"><a href="https://idhanth17.github.io/Lottery_Simulator/">Live</a> &middot; <a href="https://github.com/idhanth17/Lottery_Simulator">GitHub</a></div>
+  </div>
+  <ul>
+    <li>Dependency-free solver for Skiena's psychic lottery problem (an NP-hard set-cover instance) using bitmask encodings and a greedy ln(n)-approximation with randomized restarts; <b>cut the ticket set from 5,005 to a verified covering set of 17</b>.</li>
+  </ul>
+</div>
+<div class="block">
+  <div class="row">
+    <div class="left"><span class="proj-title">Adaptive 3D CMS</span> &nbsp;<span class="stack">Next.js, React Three Fiber, Three.js, PostgreSQL, Prisma</span></div>
+    <div class="right links"><a href="https://idhanth-portfolio.vercel.app/">Live</a> &middot; <a href="https://github.com/idhanth17/Portfolio_Website">GitHub</a></div>
+  </div>
+  <ul>
+    <li>3D portfolio CMS with persona-based content routing and a role-based admin dashboard on serverless PostgreSQL.</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+<table class="skills">
+  <tr><td>Languages</td><td>Python, TypeScript, JavaScript, Java, SQL</td></tr>
+  <tr><td>Backend &amp; AI</td><td>FastAPI, Node.js, LangChain, RAG pipelines, vLLM, Vertex AI</td></tr>
+  <tr><td>Frontend</td><td>React, Next.js</td></tr>
+  <tr><td>Databases</td><td>PostgreSQL, MySQL, MongoDB, Neo4j, Qdrant, FAISS</td></tr>
+  <tr><td>Cloud &amp; Tools</td><td>Google Cloud Platform, Docker, Linux, Git</td></tr>
+</table>
+
+<h2>Activities</h2>
+<ul>
+  <li>Competed in multiple inter-college hackathons.</li>
+  <li>Pre-Production team member, Radio Hub Club; speaker at Speakers Hive Club, PSG College of Technology.</li>
+</ul>
+
+</body>
+</html>
